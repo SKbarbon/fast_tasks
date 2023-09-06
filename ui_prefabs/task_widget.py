@@ -9,7 +9,7 @@ class TaskWidget (flet.Container):
 
         
         if done:
-            txt_color = flet.colors.WHITE38
+            txt_color = "#999999"
             mark = "✅"
         else:
             txt_color = flet.colors.BLACK
@@ -22,7 +22,7 @@ class TaskWidget (flet.Container):
 
 
         # props
-        self.border = flet.border.all(0.5, color="black")
+        # self.border = flet.border.all(0.5, color="black")
         self.height = 50
-        self.width = 300
+        self.width = 250
         self.border_radius = 12

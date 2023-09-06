@@ -1,13 +1,18 @@
 from ui_prefabs.subpage import SubPage
 from utils.get_user_tasks import get_user_tasks
 from ui_prefabs.task_widget import TaskWidget
-import flet
+from tools.edit_task import edit_task_state
+import flet, asyncio
 
 
 
 class HomePage (SubPage):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, check_animation_function, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.check_animation_function = check_animation_function
+
+        self.sub_title = flet.Text("", height=10)
+        self.controls.append(self.sub_title)
 
         self.tasks_column = flet.Column()
         self.controls.append(self.tasks_column)
@@ -19,7 +24,11 @@ class HomePage (SubPage):
            if action == "open_page":
                print("open_page")
            elif action == "check_as_done":
-               print("check_as_done")
+               edit_task_state(task_name)
+               self.refresh_tasks()
+               asyncio.create_task(self.tasks_column.update_async())
+               asyncio.create_task(self.check_animation_function())
+
 
         self.tasks_column.controls.clear()
         tasks = get_user_tasks()
