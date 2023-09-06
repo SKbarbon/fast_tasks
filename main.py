@@ -14,7 +14,7 @@ class Main:
         self.controls_to_fill_bound = [] # All controls's bound will be as the page bound.
         self.appBar = flet.AppBar(
             title=flet.Text("Home"),
-            actions=[flet.TextButton(content=flet.Text("+", size=25), on_click=self.check_animation)]
+            # actions=[flet.TextButton(content=flet.Text("+", size=25), on_click=self.check_animation)]
         )
 
         page.title = "Fast task"
@@ -24,6 +24,9 @@ class Main:
         page.scroll = flet.ScrollMode.ALWAYS
         page.padding = 0
         page.appbar = self.appBar
+        page.floating_action_button = flet.FloatingActionButton(content=flet.Row([
+            flet.Text("+", color="white", size=25)
+        ], alignment=flet.MainAxisAlignment.CENTER), bgcolor="black")
 
         self.main_stack = flet.Stack()
 

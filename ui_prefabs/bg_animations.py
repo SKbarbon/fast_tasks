@@ -21,7 +21,7 @@ class AnimationsBg (flet.Stack):
                 animate_position=random_duration,
                 animate_offset=random_duration,
                 rotate=flet.Rotate(rot_val),
-                top=500,
+                top=1200,
                 left=0,
                 opacity=0.0
             )
