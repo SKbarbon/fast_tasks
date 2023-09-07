@@ -7,10 +7,9 @@ import flet, asyncio
 
 
 class HomePage (SubPage):
-    def __init__(self, check_animation_function, main_class, *args, **kwargs):
+    def __init__(self, check_animation_function, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.check_animation_function = check_animation_function
-        self.main_class = main_class
 
         self.sub_title = flet.Text("", height=10)
         self.controls.append(self.sub_title)
@@ -23,7 +22,7 @@ class HomePage (SubPage):
     def refresh_tasks (self):
         def on_check_task (task_name, action:str):
            if action == "open_page":
-               asyncio.create_task(self.main_class.open_edit_task_page_by_name(name=task_name))
+               print("open_page")
            elif action == "check_as_done":
                edit_task_state(task_name)
                self.refresh_tasks()

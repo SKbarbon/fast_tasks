@@ -1,12 +1,10 @@
+import flet as ft
 import flet
 
+def main(page: ft.Page):
+    c = flet.ListView(height=500)
+    page.add(c)
 
-def main (page:flet.Page):
-    stk = flet.Stack()
-    page.add(stk)
+    page.add(flet.Text("gg"))
 
-    stk.controls.append(flet.Text("fff", top=50, left=140))
-    stk.update()
-
-
-flet.app(target=main)
+ft.app(target=main)
