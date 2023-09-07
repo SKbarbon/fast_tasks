@@ -1,0 +1,11 @@
+framework module serious_python {
+  umbrella header "serious_python-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module serious_python.Swift {
+  header "serious_python-Swift.h"
+  requires objc
+}
